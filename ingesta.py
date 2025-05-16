@@ -14,7 +14,7 @@ print(f"{Fore.GREEN}{Style.BRIGHT}Inicio de proceso de exportación de datos a S
 try:
     print(f"{Fore.YELLOW}Conectando a la base de datos MySQL...{Style.RESET_ALL}")
     connection = mysql.connector.connect(
-        host="44.220.164.144",    # Reemplaza con la IP pública de tu instancia EC2
+        host="172.31.23.130",    # Reemplaza con la IP pública de tu instancia EC2
         user="root",               # Tu usuario de la base de datos
         password="utec",        # Tu contraseña de la base de datos
         database="bd_api_employees",     # Nombre de la base de datos
@@ -61,7 +61,7 @@ cursor.close()
 connection.close()
 
 # Subir el archivo CSV a un bucket de S3
-bucket_name = 'cloud-s6-ingesta '  # Nombre de tu bucket en S3
+bucket_name = 'cloud-s6-ingesta'  # Nombre de tu bucket en S3
 object_name = 'mysql_data.csv'  # Nombre con el que se guardará el archivo en S3
 
 # Crear el cliente de S3
